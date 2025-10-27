@@ -304,6 +304,17 @@
     blockquote .footer {
       color: var(--cinza);
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    blockquote .footer>img {
+      width: 32px;
+      height: 32px;      
+      object-fit: cover;
+      vertical-align: middle;
+      margin-right: 8px;
     }
 
     blockquote .footer .stars {
