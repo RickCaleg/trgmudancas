@@ -86,6 +86,10 @@ header .nav .btn:hover {
 header .nav .wpp {
   background: linear-gradient(90deg, #10b981, #059669);
 }
+header .nav .wpp:hover {
+  background: linear-gradient(90deg, #0a3f9e, #1d5fd3);
+  filter: none;
+}
 /* Hero */
 .hero {
   background: radial-gradient(1200px 600px at 80% -10%, rgba(61, 141, 255, 0.2), transparent 60%), radial-gradient(1200px 600px at -10% 0%, rgba(19, 63, 158, 0.18), transparent 60%), #f8fbff;
@@ -266,6 +270,22 @@ blockquote .footer .stars {
   color: #f59e0b;
   font-size: 14px;
   line-height: 1;
+}
+.ver-todas-avaliacoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.ver-todas-avaliacoes a {
+  color: #0a3f9e;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.ver-todas-avaliacoes a:hover {
+  color: #072c6e;
+  text-decoration: underline;
 }
 /* Formulário */
 form {

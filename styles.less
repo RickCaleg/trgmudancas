@@ -110,6 +110,11 @@ header {
 
         .wpp {
             background: linear-gradient(90deg, #10b981, #059669);
+
+            &:hover {
+                background: linear-gradient(90deg, @azul-2, @azul);
+                filter: none;
+            }
         }
     }
 }
@@ -323,6 +328,25 @@ blockquote {
             color: #f59e0b;
             font-size: 14px;
             line-height: 1;
+        }
+    }
+}
+
+.ver-todas-avaliacoes {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    a {
+        color: @azul-2;
+        font-weight: 700;
+        font-size: 1.05rem;
+        text-decoration: none;
+        transition: color .2s ease;
+
+        &:hover {
+            color: darken(@azul-2, 10%);
+            text-decoration: underline;
         }
     }
 }
