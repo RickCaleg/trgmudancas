@@ -26,6 +26,30 @@ body {
     background: #f8fafc;
 }
 
+.btn {
+    background: linear-gradient(90deg, @azul-2, @azul);
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 999px;
+    font-weight: 700;
+    box-shadow: @sombra;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.05);
+    }
+}
+
+.wpp {
+    background: linear-gradient(90deg, #10b981, #059669);
+
+    &:hover {
+        background: linear-gradient(90deg, @azul-2, @azul);
+        filter: none;
+    }
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -167,28 +191,28 @@ header {
                 color: @cinza;
             }
         }
-
-        .badges {
-            display: flex;
-            gap: 12px;
-            margin-top: 12px;
-            flex-wrap: wrap;
-
-            .badge {
-                background: #eef2ff;
-                color: @azul-2;
-                border: 1px solid #dbeafe;
-                border-radius: 999px;
-                padding: 6px 12px;
-                font-weight: 700;
-                font-size: .85rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-            }
-        }
     }
+}
+
+.badges {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: #eef2ff;
+    color: @azul-2;
+    border: 1px solid #dbeafe;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: .85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 /* Sections */
