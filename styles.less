@@ -370,6 +370,102 @@ section.regiao-atendimento {
     }
 }
 
+/* Encaixotamento */
+section.encaixotamento-destaque {
+    background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+    border-top: 1px solid #fdba74;
+    border-bottom: 1px solid #fdba74;
+
+    .encaixotamento-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin-bottom: 32px;
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 0 0 20px;
+            color: #c2410c;
+            font-weight: 700;
+        }
+
+        .itens-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+
+            .item-tipo {
+                background: #fff;
+                padding: 16px;
+                border-radius: 12px;
+                border: 1px solid #fed7aa;
+                box-shadow: 0 4px 12px rgba(194, 65, 12, 0.1);
+
+                strong {
+                    color: #c2410c;
+                    display: block;
+                    margin-bottom: 6px;
+                    font-size: 0.95rem;
+                }
+
+                p {
+                    margin: 0;
+                    color: #7c2d12;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+
+        .encaixotamento-processo {
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    background: #fff;
+                    padding: 12px 16px;
+                    margin-bottom: 8px;
+                    border-radius: 8px;
+                    border-left: 4px solid #f97316;
+                    box-shadow: 0 2px 8px rgba(194, 65, 12, 0.1);
+                    color: #7c2d12;
+
+                    strong {
+                        color: #c2410c;
+                    }
+                }
+            }
+        }
+    }
+
+    .encaixotamento-cta {
+        background: linear-gradient(135deg, #f97316, #ea580c);
+        color: #fff;
+        padding: 24px;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
+
+        p {
+            margin: 0 0 16px;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .btn {
+            background: #fff;
+            color: #ea580c;
+            font-weight: 700;
+
+            &:hover {
+                background: #f8fafc;
+                color: #c2410c;
+            }
+        }
+    }
+}
+
 /* Galeria — mosaico estilo masonry via CSS columns */
 .galeria {
     column-gap: 12px;
@@ -600,6 +696,19 @@ footer {
     .contact-cards {
         grid-template-columns: 1fr;
     }
+
+    section.regiao-atendimento .regioes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section.encaixotamento-destaque .encaixotamento-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        .itens-grid {
+            grid-template-columns: 1fr;
+        }
+    }
 }
 
 @media (max-width: 640px) {
@@ -618,5 +727,14 @@ footer {
 
     .galeria {
         column-count: 1;
+    }
+
+    .hero-inner .area-atendimento .cidades-destaque {
+        justify-content: center;
+
+        .cidade {
+            font-size: 0.8rem;
+            padding: 6px 10px;
+        }
     }
 }
