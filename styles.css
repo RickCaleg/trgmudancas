@@ -379,28 +379,115 @@ section.encaixotamento-destaque .encaixotamento-cta .btn:hover {
   background: #f8fafc;
   color: #c2410c;
 }
-/* Galeria — mosaico estilo masonry via CSS columns */
-.galeria {
-  column-gap: 12px;
-  column-count: 3;
-  width: 100%;
-  -webkit-column-break-inside: avoid;
-  -moz-column-break-inside: avoid;
-  column-break-inside: avoid;
+/* Galeria — estilo carousel com proporções originais */
+.galeria-netflix {
+  position: relative;
+  margin: 0;
+  overflow: visible;
 }
-.galeria img {
-  width: 100%;
-  height: auto;
-  display: inline-block;
-  margin: 0 0 12px;
-  object-fit: cover;
-  border-radius: 6px;
+.galeria-netflix .galeria-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-behavior: smooth;
+  padding: 30px 60px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.galeria-netflix .galeria-scroll::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+  background: transparent;
+}
+.galeria-netflix .galeria-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+.galeria-netflix .foto-item {
+  flex: 0 0 auto;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
   cursor: zoom-in;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.galeria img:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+.galeria-netflix .foto-item:hover {
+  transform: scale(1.05) translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.galeria-netflix .foto-item img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.galeria-netflix .foto-item:hover img {
+  transform: scale(1.1);
+}
+.galeria-netflix .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  color: #0a3f9e;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  visibility: visible;
+}
+.galeria-netflix .carousel-btn:hover {
+  background: #1d5fd3;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 24px rgba(29, 95, 211, 0.4);
+}
+.galeria-netflix .carousel-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+.galeria-netflix .carousel-btn svg {
+  width: 20px;
+  height: 20px;
+}
+.galeria-netflix .carousel-btn.carousel-btn-prev {
+  left: 15px;
+}
+.galeria-netflix .carousel-btn.carousel-btn-next {
+  right: 15px;
+}
+.galeria-netflix .carousel-btn.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.galeria-netflix::before,
+.galeria-netflix::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  pointer-events: none;
+  z-index: 1;
+}
+.galeria-netflix::before {
+  left: 0;
+  background: linear-gradient(to right, #f8fafc, transparent);
+}
+.galeria-netflix::after {
+  right: 0;
+  background: linear-gradient(to left, #f8fafc, transparent);
 }
 /* Lightbox */
 #lightbox {
@@ -560,8 +647,8 @@ footer .foot .legal {
 }
 /* Responsivo */
 @media (max-width: 1100px) {
-  .galeria {
-    column-count: 2;
+  .galeria-netflix .foto-item {
+    height: 170px;
   }
 }
 @media (max-width: 980px) {
@@ -599,8 +686,25 @@ footer .foot .legal {
   .slide {
     height: 260px;
   }
-  .galeria {
-    column-count: 1;
+  .galeria-netflix .galeria-scroll {
+    padding: 25px 50px;
+  }
+  .galeria-netflix .foto-item {
+    height: 140px;
+  }
+  .galeria-netflix .carousel-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .galeria-netflix .carousel-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  .galeria-netflix .carousel-btn.carousel-btn-prev {
+    left: 10px;
+  }
+  .galeria-netflix .carousel-btn.carousel-btn-next {
+    right: 10px;
   }
   .hero-inner .area-atendimento .cidades-destaque {
     justify-content: center;

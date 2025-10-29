@@ -466,29 +466,135 @@ section.encaixotamento-destaque {
     }
 }
 
-/* Galeria — mosaico estilo masonry via CSS columns */
-.galeria {
-    column-gap: 12px;
-    column-count: 3;
-    width: 100%;
-    -webkit-column-break-inside: avoid;
-    -moz-column-break-inside: avoid;
-    column-break-inside: avoid;
-
-    img {
-        width: 100%;
-        height: auto;
-        display: inline-block;
-        margin: 0 0 12px;
-        object-fit: cover;
-        border-radius: 6px;
-        cursor: zoom-in;
-        transition: transform .18s ease, box-shadow .18s ease;
-
-        &:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, .22);
+/* Galeria — estilo carousel com proporções originais */
+.galeria-netflix {
+    position: relative;
+    margin: 0;
+    overflow: visible; // Permite sombras aparecerem fora do container
+    
+    .galeria-scroll {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto; // Permite scroll mas oculta barra
+        overflow-y: visible; // Permite sombras aparecerem
+        scroll-behavior: smooth;
+        padding: 30px 60px; // Mais espaço vertical para sombras
+        scrollbar-width: none; // Firefox
+        -ms-overflow-style: none; // IE/Edge
+        
+        // Remove scrollbar do webkit mas mantém funcionalidade
+        &::-webkit-scrollbar {
+            height: 0;
+            width: 0;
+            background: transparent;
         }
+        
+        &::-webkit-scrollbar-thumb {
+            background: transparent;
+        }
+    }
+    
+    .foto-item {
+        flex: 0 0 auto;
+        height: 200px; // Altura fixa
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: zoom-in;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        &:hover {
+            transform: scale(1.05) translateY(-6px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+        
+        img {
+            height: 100%;
+            width: auto; // Mantém proporção original
+            max-width: none;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        &:hover img {
+            transform: scale(1.1);
+        }
+    }
+    
+    // Botões do carousel
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.95);
+        border: none;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        color: @azul-2;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        opacity: 1;
+        visibility: visible;
+        
+        &:hover {
+            background: @azul;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 24px rgba(29, 95, 211, 0.4);
+        }
+        
+        &:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        &.carousel-btn-prev {
+            left: 15px;
+        }
+        
+        &.carousel-btn-next {
+            right: 15px;
+        }
+        
+        // Ocultar botões quando necessário
+        &.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+    
+    // Efeito de fade sutil nas bordas (abaixo dos botões)
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 30px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    &::before {
+        left: 0;
+        background: linear-gradient(to right, #f8fafc, transparent);
+    }
+    
+    &::after {
+        right: 0;
+        background: linear-gradient(to left, #f8fafc, transparent);
     }
 }
 
@@ -675,8 +781,8 @@ footer {
 
 /* Responsivo */
 @media (max-width: 1100px) {
-    .galeria {
-        column-count: 2;
+    .galeria-netflix .foto-item {
+        height: 170px;
     }
 }
 
@@ -725,8 +831,32 @@ footer {
         height: 260px;
     }
 
-    .galeria {
-        column-count: 1;
+    .galeria-netflix {
+        .galeria-scroll {
+            padding: 25px 50px; // Mais espaço para sombras no mobile
+        }
+        
+        .foto-item {
+            height: 140px;
+        }
+        
+        .carousel-btn {
+            width: 36px;
+            height: 36px;
+            
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+            
+            &.carousel-btn-prev {
+                left: 10px;
+            }
+            
+            &.carousel-btn-next {
+                right: 10px;
+            }
+        }
     }
 
     .hero-inner .area-atendimento .cidades-destaque {
