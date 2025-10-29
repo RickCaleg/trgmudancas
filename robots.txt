@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Block access to unnecessary files
+Disallow: /styles.less
+Disallow: *.less$
+
+# Sitemap location
+Sitemap: https://trgmudancas.com.br/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
