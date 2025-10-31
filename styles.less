@@ -801,9 +801,57 @@ footer {
 }
 
 /* Responsivo */
+@media (max-width: 1200px) {
+    header .nav {
+        padding: 8px 12px;
+        gap: 12px;
+        
+        .brand h1 {
+            font-size: 1rem;
+        }
+        
+        a {
+            padding: 8px 10px;
+            font-size: 0.95rem;
+        }
+        
+        .btn {
+            padding: 8px 14px;
+            font-size: 0.9rem;
+        }
+    }
+}
+
 @media (max-width: 1100px) {
     .galeria-netflix .foto-item {
         height: 170px;
+    }
+    
+    header .nav {
+        gap: 8px;
+        
+        .brand {
+            gap: 8px;
+            
+            img {
+                height: 40px;
+            }
+            
+            h1 {
+                font-size: 0.95rem;
+            }
+        }
+        
+        a {
+            padding: 6px 8px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+        
+        .btn {
+            padding: 7px 12px;
+            font-size: 0.8rem;
+        }
     }
 }
 
@@ -839,6 +887,10 @@ footer {
 }
 
 @media (max-width: 980px) {
+    header .nav a.hide-md {
+        display: none;
+    }
+    
     .hero .hero-inner {
         grid-template-columns: 1fr;
         gap: 28px;
@@ -872,7 +924,45 @@ footer {
     }
 }
 
+@media (max-width: 850px) {
+    header .nav {
+        flex-wrap: wrap;
+        gap: 6px;
+        
+        .brand {
+            flex: 1 1 auto;
+            min-width: fit-content;
+        }
+        
+        .spacer {
+            display: none;
+        }
+        
+        a:not(.btn) {
+            padding: 4px 6px;
+            font-size: 0.8rem;
+        }
+        
+        .btn {
+            padding: 6px 10px;
+            font-size: 0.75rem;
+        }
+    }
+}
+
 @media (max-width: 768px) {
+    header .nav {
+        padding: 6px 12px;
+        
+        .brand h1 {
+            display: none; // Esconde o texto da marca em telas pequenas
+        }
+        
+        .brand img {
+            height: 36px;
+        }
+    }
+    
     .hero .hero-inner {
         padding: 24px 16px;
         gap: 24px;
